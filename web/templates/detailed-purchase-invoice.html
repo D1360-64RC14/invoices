@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar Invoice</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/base.css">
+</head>
+
+<body class="py-5 px-3 print-p-0 bg-body-secondary print-bg">
+    <div class="container" style="max-width: var(--bs-breakpoint-lg)">
+        <div class="my-2 d-print-none">
+            <button class="d-block ms-auto btn btn-sm btn-info" type="button" onclick="print()">Imprimir</button>
+        </div>
+
+        <main>
+            <article class="container-fluid p-4 p-sm-5 bg-white">
+                <header>
+                    <h2>Company</h2>
+                    <p class="my-1">Av. Lorem Ipsum, 42</p>
+                    <p class="my-1">00 9 9100-0000</p>
+                    <p class="my-1">contact@company.com</p>
+                </header>
+
+                <section class="text-center my-5">
+                    <h1>INVOICE</h1>
+                    <p class="text-secondary">Nº {{ .Number }}</p>
+                </section>
+
+                <table class="table w-100">
+                    <thead style="font-size: small;">
+                        <tr>
+                            <th>Descrição</th>
+                            <th class="text-center">Qnt</th>
+                            <th>Preço Unitário</th>
+                            <th>Preço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ range .Items }}
+                        <tr>
+                            <td>{{ .Description }}</td>
+                            <td class="text-center text-nowrap">{{ .Ammount }}</td>
+                            <td class="text-nowrap">{{ .UnitPrice | priceFormat }}</td>
+                            <td class="text-nowrap">{{ .Price | priceFormat }}</td>
+                        </tr>
+                        {{ end }}
+                    </tbody>
+                </table>
+
+                <section class="container my-4">
+                    <p class="row my-1">
+                        <span class="col text-end">Descontos:</span>
+                        <span class="col-4 text-nowrap">{{ .Discounts | priceFormat }}</span>
+                    </p>
+                    <p class="row my-1">
+                        <span class="col text-end">Envio:</span>
+                        <span class="col-4 text-nowrap">{{ .ShipmentCosts | priceFormat }}</span>
+                    </p>
+                    <p class="row fw-bold my-1">
+                        <span class="col text-end">Total:</span>
+                        <span class="col-4 text-nowrap">{{ .Total | priceFormat }}</span>
+                    </p>
+                </section>
+
+                <footer>
+                    <hr class="border-secondary">
+                    <p>
+                        <strong>Data:</strong> {{ .Date | dateFormat }}
+                    </p>
+                    <p class="mt-5">
+                        <strong>Assinatura:</strong>
+                    </p>
+                </footer>
+            </article>
+        </main>
+    </div>
+</body>
+
+</html>
