@@ -15,15 +15,15 @@ func NewDefaultRouter() *DefaultRouter {
 
 func (r *DefaultRouter) AttachTo(group *gin.RouterGroup) {
 	group.GET("/", r.getMainPage)
-	group.GET("/purchase-invoice", r.postPurchaseInvoice)
-	group.GET("/detailed-purchase-invoice", r.postDetailedPurchaseInvoice)
+	group.GET("/purchase-invoice", r.getPurchaseInvoice)
+	group.GET("/detailed-purchase-invoice", r.getDetailedPurchaseInvoice)
 }
 
 func (r *DefaultRouter) getMainPage(c *gin.Context) {
 	c.File("web/app/index.html")
 }
 
-func (r *DefaultRouter) postPurchaseInvoice(c *gin.Context) {
+func (r *DefaultRouter) getPurchaseInvoice(c *gin.Context) {
 	c.HTML(200, "purchase-invoice.html", templates.PurchaseInvoice{
 		Name:   "Diego Garcia",
 		Number: 256,
@@ -38,7 +38,7 @@ func (r *DefaultRouter) postPurchaseInvoice(c *gin.Context) {
 	})
 }
 
-func (r *DefaultRouter) postDetailedPurchaseInvoice(c *gin.Context) {
+func (r *DefaultRouter) getDetailedPurchaseInvoice(c *gin.Context) {
 	c.HTML(200, "detailed-purchase-invoice.html", templates.DetailedPurchaseInvoice{
 		Name:   "Diego Garcia",
 		Number: 256,
