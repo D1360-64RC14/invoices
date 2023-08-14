@@ -2,6 +2,9 @@
 
 Aprendizado de Go HTML templates com gin.
 
+![Captura de tela de purchase invoice](media/purchase-invoice.png)
+![Captura de tela de detailed purchase invoice](media/detailed-purchase-invoice.png)
+
 ## Rotas
 
 ### `/` (root)
