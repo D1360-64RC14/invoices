@@ -3,7 +3,6 @@ package templates
 import "time"
 
 type DetailedPurchaseInvoice struct {
-	Name          string
 	Number        float32
 	Date          time.Time
 	Items         []DetailedPurchaseInvoiceItem

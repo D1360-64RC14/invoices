@@ -45,7 +45,6 @@ func (r *DefaultRouter) getDetailedPurchaseInvoice(c *gin.Context) {
 	c.HTML(200, "invoice-view.html", templates.InvoiceView{
 		Template: "detailed-purchase-invoice",
 		Content: templates.DetailedPurchaseInvoice{
-			Name:   "Diego Garcia",
 			Number: 256,
 			Date:   time.Now(),
 			Items: []templates.DetailedPurchaseInvoiceItem{
