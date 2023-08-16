@@ -49,8 +49,11 @@
 
     <footer>
         <hr class="border-secondary">
-        <p>
+        <p class="mb-2">
             <strong>Data:</strong> {{ .Date | dateFormat }}
+        </p>
+        <p>
+            <strong>Hora:</strong> {{ .Date | timeFormat }}
         </p>
         <p class="mt-5">
             <strong>Assinatura:</strong>
