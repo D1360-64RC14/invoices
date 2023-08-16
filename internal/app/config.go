@@ -12,6 +12,7 @@ func (a *App) configureTemplating() {
 		"dateFormat":  functions.DateFormat,
 		"priceFormat": functions.PriceFormat,
 		"reverse":     functions.Reverse,
+		"timeFormat":  functions.TimeFormat,
 	})
 
 	a.engine.LoadHTMLGlob("web/templates/*.html")
