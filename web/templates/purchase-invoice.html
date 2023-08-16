@@ -11,7 +11,13 @@
     <ul class="list-group list-group-flush">
         {{ range .Items }}
         <li class="list-group-item py-3 border-bottom-0 border-top">
-            <span class="col">{{ .Description }}</span>
+            <span class="col">
+                {{ if le .Ammount 1 }}
+                {{ .Description }}
+                {{ else }}
+                {{ .Ammount }}x {{ .Description }}
+                {{ end }}
+            </span>
             <span class="col-4 float-end text-end">{{ .Price | priceFormat }}</span>
         </li>
         {{ end }}

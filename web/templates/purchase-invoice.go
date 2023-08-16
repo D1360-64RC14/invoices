@@ -12,5 +12,6 @@ type PurchaseInvoice struct {
 
 type PurchaseInvoiceItem struct {
 	Description string
+	Ammount     int
 	Price       float32
 }
