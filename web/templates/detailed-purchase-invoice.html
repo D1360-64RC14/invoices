@@ -1,9 +1,9 @@
 <article class="container-fluid p-4 p-sm-5 bg-white" style="min-width: var(--bs-breakpoint-lg);">
     <header>
-        <h2>Company</h2>
-        <p class="my-1">Av. Lorem Ipsum, 42</p>
-        <p class="my-1">00 9 9100-0000</p>
-        <p class="my-1">contact@company.com</p>
+        <h2>{{ .Company.Name }}</h2>
+        <p class="my-1">{{ .Company.Address }}</p>
+        <p class="my-1">{{ .Company.Phone }}</p>
+        <p class="my-1">{{ .Company.Email }}</p>
     </header>
 
     <section class="text-center my-5">
