@@ -1,54 +1,30 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<article class="container-fluid p-5 pt-4 bg-white border rounded" style="width: 500px;">
+    <header class="row mb-5" style="font-size: small;">
+        <span class="col">Invoice <span class="text-secondary">#{{ .Number }}</span></span>
+        <span class="col text-end">{{ .Date | dateFormat }}</span>
+    </header>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizar Invoice</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/base.css">
-</head>
+    <h1 class="fs-4 mb-5 mx-auto text-center" style="max-width: 25rem">Agradecemos por sua compra,
+        {{ .Name }}!
+    </h1>
 
-<body class="py-5 px-3 print-p-0 bg-body-secondary print-bg d-flex d-print-inline-block flex-column align-items-center">
-    <div class="d-block">
-        <div class="my-2 d-print-none">
-            <button class="d-block ms-auto btn btn-sm btn-info" type="button" onclick="print()">Imprimir</button>
-        </div>
+    <ul class="list-group list-group-flush">
+        {{ range .Items }}
+        <li class="list-group-item py-3 border-bottom-0 border-top">
+            <span class="col">{{ .Description }}</span>
+            <span class="col-4 float-end text-end">{{ .Price | priceFormat }}</span>
+        </li>
+        {{ end }}
+        <li class="list-group-item py-4 text-end border-3 border-start-0 border-end-0">
+            <strong>Total: {{ .Total | priceFormat }}</strong>
+        </li>
+    </ul>
 
-        <main>
-            <article class="container-fluid p-5 pt-4 bg-white border rounded" style="width: 500px;">
-                <header class="row mb-5" style="font-size: small;">
-                    <span class="col">Invoice <span class="text-secondary">#{{ .Number }}</span></span>
-                    <span class="col text-end">{{ .Date | dateFormat }}</span>
-                </header>
-
-                <h1 class="fs-4 mb-5 mx-auto text-center" style="max-width: 25rem">Agradecemos por sua compra,
-                    {{ .Name }}!
-                </h1>
-
-                <ul class="list-group list-group-flush">
-                    {{ range .Items }}
-                    <li class="list-group-item py-3 border-bottom-0 border-top">
-                        <span class="col">{{ .Description }}</span>
-                        <span class="col-4 float-end text-end">{{ .Price | priceFormat }}</span>
-                    </li>
-                    {{ end }}
-                    <li class="list-group-item py-4 text-end border-3 border-start-0 border-end-0">
-                        <strong>Total: {{ .Total | priceFormat }}</strong>
-                    </li>
-                </ul>
-
-                <footer class="mt-4">
-                    <p class="text-wrap text-body-secondary">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa dicta officia veritatis!
-                        Voluptatibus
-                        natus commodi quidem libero excepturi cum magni.
-                    </p>
-                </footer>
-            </article>
-        </main>
-    </div>
-</body>
-
-</html>
+    <footer class="mt-4">
+        <p class="text-wrap text-body-secondary">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa dicta officia veritatis!
+            Voluptatibus
+            natus commodi quidem libero excepturi cum magni.
+        </p>
+    </footer>
+</article>
