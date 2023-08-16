@@ -36,7 +36,8 @@ func (r *DefaultRouter) getPurchaseInvoice(c *gin.Context) {
 				{Description: "Capa para Travesseiro", Ammount: 1, Price: 32.00},
 				{Description: "Cabide", Ammount: 5, Price: 25.03},
 			},
-			Total: 124.99 + 28.50 + 32.00 + 25.03,
+			Total:   124.99 + 28.50 + 32.00 + 25.03,
+			Message: "Dolore officia nisi mollit exercitation ex duis ad. Dolor aute enim duis non veniam dolore. Nulla qui tempor est consectetur elit tempor minim consequat consectetur.",
 		},
 	})
 }
